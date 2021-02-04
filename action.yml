@@ -1,0 +1,9 @@
+name: "ms-teams-actions"
+description: "Github Actions for sending a message to Microsoft Teams channel, built with Python3"
+author: "SJQUANT"
+outputs:
+  output:
+    description: "Output from the action"
+runs:
+  using: "docker"
+  image: "Dockerfile"

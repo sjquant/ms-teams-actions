@@ -1,2 +1,3 @@
 # ms-teams-actions
-Github Actions for Microsoft Teams, built with Python3
+
+Github Actions for sending a message to Microsoft Teams channel, built with Python3
