@@ -4,12 +4,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@2
+      - uses: actions/checkout@v2
 
       - name: Self test
         id: selftest
-        uses: sjquant/ms-teams-actions@main
-
-      - name: Check outputs
-        run: |
-          test "${{ steps.selftest.outputs.output }}" == "hello, world"
+        uses: ./
+        with:
+          webhook_uri: ${{ secrets.WEBHOOK_URI }}
+          title: "MS TEAMS ACTIONS"
+          summary: "GitHub Actions Message"
+          sections: '[{ "activityImage": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png", "activityTitle": "GitHub Action invoked",  "activitySubtitle": "Event triggered by SJQuant", "activityText": "Commit message: Happy Coding!" }]'
+          link_buttons: '[["My Github", "https://github.com/sjquant"],["My Blog", "https://sjquant.tistory.com"]]'

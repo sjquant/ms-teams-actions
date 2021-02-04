@@ -1,9 +1,39 @@
 name: "ms-teams-actions"
 description: "Github Actions for sending a message to Microsoft Teams channel, built with Python3"
 author: "SJQUANT"
-outputs:
-  output:
-    description: "Output from the action"
+inputs:
+  webhook_uri:
+    description: Incoming webhook URI to Teams
+    required: true
+  title:
+    description: Title of the message
+    required: false
+    default: null
+  color:
+    description: Theme color of the message in hex form
+    required: false
+    default: null
+  summary:
+    description: Summary of the message
+    required: false
+    default: null
+  text:
+    description: Text of the message
+    required: false
+    default: null
+  link_buttons:
+    description: JSON double-deep array, where inner array consists of 'button text' and 'button url'. If actions exist, it goes to the end.
+    required: false
+    default: null
+  sections:
+    description: JSON array of card section objects
+    required: false
+    default: null
+  actions:
+    description: JSON array of potential action objects
+    required: false
+    default: null
+
 runs:
   using: "docker"
   image: "Dockerfile"
